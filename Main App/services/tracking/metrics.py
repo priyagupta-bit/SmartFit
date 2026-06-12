@@ -113,3 +113,9 @@ def sync_metrics_update(context):
         
         if result:
             st.session_state.audio_to_play, st.session_state.coach_feedback = result
+
+    last_rerun = st.session_state.get("_last_rerun", 0)
+    now = time.time()
+    if now - last_rerun > 0.5:
+        st.session_state._last_rerun = now
+        st.rerun()
