@@ -194,6 +194,7 @@ class VideoProcessorClass(VideoProcessorBase):
         )
 
     def recv(self, frame):
+        print("FRAME RECEIVED")
         image = np.asarray(
             cv2.flip(frame.to_ndarray(format="bgr24"), 1),
             dtype=np.uint8
