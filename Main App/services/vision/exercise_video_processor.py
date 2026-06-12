@@ -1,52 +1,12 @@
-# import os
-# import cv2
-# import av
-# import numpy as np
-# import mediapipe as mp
-# import threading
-# from streamlit_webrtc import VideoProcessorBase
-# from mediapipe.tasks import python
-# from mediapipe.tasks.python import vision
-# from detectors.squat import SquatDetector
-# from detectors.pushup import PushUpDetector
-# from detectors.biceps_curl import BicepsCurlDetector
-# from detectors.shoulder_press import ShoulderPressDetector
-# from detectors.lunges import LungesDetector
-# from services.config.workout_config import POSE_CONNECTIONS
 import os
-
-print("1. Importing cv2...")
 import cv2
-print("1. cv2 imported successfully")
-
-print("2. Importing av...")
 import av
-print("2. av imported successfully")
-
-print("3. Importing numpy...")
 import numpy as np
-print("3. numpy imported successfully")
-
-print("4. Importing mediapipe...")
 import mediapipe as mp
-print("4. mediapipe imported successfully")
-
-print("5. Importing threading...")
 import threading
-print("5. threading imported successfully")
-
-print("6. Importing streamlit_webrtc...")
 from streamlit_webrtc import VideoProcessorBase
-print("6. streamlit_webrtc imported successfully")
-
-print("7. Importing mediapipe.tasks.python...")
 from mediapipe.tasks import python
-print("7. mediapipe.tasks.python imported successfully")
-
-print("8. Importing mediapipe.tasks.python.vision...")
 from mediapipe.tasks.python import vision
-print("8. mediapipe.tasks.python.vision imported successfully")
-
 from detectors.squat import SquatDetector
 from detectors.pushup import PushUpDetector
 from detectors.biceps_curl import BicepsCurlDetector
@@ -54,22 +14,19 @@ from detectors.shoulder_press import ShoulderPressDetector
 from detectors.lunges import LungesDetector
 from services.config.workout_config import POSE_CONNECTIONS
 
-
 class VideoProcessorClass(VideoProcessorBase):
     def __init__(self):
         self._lock = threading.Lock()
         self._latest_metrics = None
         self._exercise_type = "Squats"
+        
+        BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
-        # model_path = os.path.join(os.getcwd(), "ml_models", "pose_landmarker_full.task")
-        model_path = os.path.join(os.getcwd(), "ml_models", "pose_landmarker_full.task")
-
-        print("=" * 50)
-        print("CWD:", os.getcwd())
-        print("Model path:", model_path)
-        print("Exists:", os.path.exists(model_path))
-        print("Absolute path:", os.path.abspath(model_path))
-        print("=" * 50)
+        model_path = os.path.join(
+            BASE_DIR,
+            "ml_models",
+            "pose_landmarker_full.task"
+        )
         base_option = python.BaseOptions(model_asset_path=model_path)
 
         options = vision.PoseLandmarkerOptions(
