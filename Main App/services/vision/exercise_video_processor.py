@@ -61,7 +61,15 @@ class VideoProcessorClass(VideoProcessorBase):
         self._latest_metrics = None
         self._exercise_type = "Squats"
 
+        # model_path = os.path.join(os.getcwd(), "ml_models", "pose_landmarker_full.task")
         model_path = os.path.join(os.getcwd(), "ml_models", "pose_landmarker_full.task")
+
+        print("=" * 50)
+        print("CWD:", os.getcwd())
+        print("Model path:", model_path)
+        print("Exists:", os.path.exists(model_path))
+        print("Absolute path:", os.path.abspath(model_path))
+        print("=" * 50)
         base_option = python.BaseOptions(model_asset_path=model_path)
 
         options = vision.PoseLandmarkerOptions(
