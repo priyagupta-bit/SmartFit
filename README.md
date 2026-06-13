@@ -2,7 +2,9 @@
 
 **SmartFit AI** is an AI-powered fitness coach that uses computer vision for real-time pose estimation, exercise tracking, rep counting, and form correction — all running live in your browser.
 
-🔗 **Live Demo:** [smartfit-bm8jpdk9aalsr2atssnkcb.streamlit.app](https://smartfit-bm8jpdk9aalsr2atssnkcb.streamlit.app/)
+🌐 **Project Website:** [smartfit-ai-real-time.netlify.app](https://smartfit-ai-real-time.netlify.app/)
+
+🔗 **Live App (Streamlit):** [smartfit-ai-real-time.streamlit.app](https://smartfit-ai-real-time.streamlit.app/)
 
 ---
 
@@ -109,9 +111,3 @@ GROQ_API_KEY = "..."
 TWILIO_ACCOUNT_SID = "..."
 TWILIO_AUTH_TOKEN = "..."
 ```
-
----
-
-## 📄 License
-
-MIT License — feel free to use, modify, and build on this project.
